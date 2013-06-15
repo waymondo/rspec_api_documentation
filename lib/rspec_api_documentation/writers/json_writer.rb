@@ -106,6 +106,8 @@ module RspecApiDocumentation
             hash[:curl] = nil
           end
           hash
+        end.reject do |hash|
+          !hash[:request_body].nil? && !hash[:request_body].match("skip_api_docs").nil?
         end
       end
     end
